@@ -11,7 +11,7 @@ import json
 
 def look_for_new_post():
     chrome_options = Options()
-    # chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(10)
 
@@ -37,7 +37,7 @@ def look_for_new_post():
         data = json.load(json_file)
         if data['postId'] != post:
             try:
-                msg = '{} URL: {}'.format(post, link)
+                msg = '{} {}'.format(post, link)
                 print(msg)
                 send_message(msg)
             except:
